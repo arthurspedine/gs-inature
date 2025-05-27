@@ -1,0 +1,6 @@
+@iNature_HostAddress = http://localhost:5186
+
+GET {{iNature_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
