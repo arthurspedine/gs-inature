@@ -23,5 +23,10 @@ namespace iNature.Repositories
         {
             return await _context.Set<Usuario>().FirstOrDefaultAsync(u => u.Email == email);
         }
+
+        public async Task<Usuario?> GetByIdAsync(int userId)
+    {
+        return await _context.Usuarios.FirstOrDefaultAsync(u => u.Id == userId);
+    }
     }
 }

@@ -18,5 +18,17 @@ namespace iNature.Models.DTOs
             Corpo = corpo;
             NomeAutor = nomeAutor;
         }
+
+        public static NoticiaResponseDTO FromNoticia(Noticia noticia)
+        {
+            return new NoticiaResponseDTO(
+                noticia.Id,
+                noticia.Titulo,
+                noticia.DataPublicacao,
+                noticia.Resumo,
+                noticia.Corpo,
+                noticia.Usuario?.Nome ?? "Desconhecido"
+            );
+        }
     }
 }

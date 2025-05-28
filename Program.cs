@@ -6,6 +6,8 @@ using System.Text;
 using iNature.Services;
 using iNature.Repositories;
 using Microsoft.OpenApi.Models;
+using System.Security.Claims;
+using System.IdentityModel.Tokens.Jwt;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -27,7 +29,9 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
             ValidateIssuerSigningKey = true,
             ValidIssuer = jwtIssuer,
             ValidAudience = jwtAudience,
-            IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(jwtKey))
+            IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(jwtKey)),
+            RoleClaimType = ClaimTypes.Role,
+            NameClaimType = ClaimTypes.NameIdentifier
         };
     });
 
@@ -36,6 +40,9 @@ builder.Services.AddAuthorization();
 builder.Services.AddScoped<UsuarioService>();
 builder.Services.AddScoped<UsuarioRepository>();
 builder.Services.AddScoped<TokenService>();
+builder.Services.AddScoped<NoticiaService>();
+builder.Services.AddScoped<NoticiaRepository>();
+builder.Services.AddHttpContextAccessor();
 
 
 builder.Services.AddControllers();

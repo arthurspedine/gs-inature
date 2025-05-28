@@ -2,7 +2,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace iNature.Models.DTOs
 {
-    public record CriarNoticiaDTO
+    public record NoticiaRequestDTO
     {
         [Required]
         [StringLength(200, ErrorMessage = "O título deve ter no máximo 200 caracteres.")]
