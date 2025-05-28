@@ -144,3 +144,13 @@ C:\Users\labsfiap\Desktop\iNature\obj\Debug\net8.0\refint\iNature.dll
 C:\Users\labsfiap\Desktop\iNature\obj\Debug\net8.0\iNature.pdb
 C:\Users\labsfiap\Desktop\iNature\obj\Debug\net8.0\iNature.genruntimeconfig.cache
 C:\Users\labsfiap\Desktop\iNature\obj\Debug\net8.0\ref\iNature.dll
+C:\Users\labsfiap\Desktop\iNature\bin\Debug\net8.0\BCrypt.Net-Next.dll
+C:\Users\labsfiap\Desktop\iNature\bin\Debug\net8.0\Microsoft.IdentityModel.Abstractions.dll
+C:\Users\labsfiap\Desktop\iNature\bin\Debug\net8.0\Microsoft.IdentityModel.JsonWebTokens.dll
+C:\Users\labsfiap\Desktop\iNature\bin\Debug\net8.0\Microsoft.IdentityModel.Logging.dll
+C:\Users\labsfiap\Desktop\iNature\bin\Debug\net8.0\Microsoft.IdentityModel.Tokens.dll
+C:\Users\labsfiap\Desktop\iNature\bin\Debug\net8.0\System.IdentityModel.Tokens.Jwt.dll
+C:\Users\labsfiap\Desktop\iNature\obj\Debug\net8.0\iNature.sourcelink.json
+C:\Users\labsfiap\Desktop\iNature\bin\Debug\net8.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+C:\Users\labsfiap\Desktop\iNature\bin\Debug\net8.0\Microsoft.IdentityModel.Protocols.dll
+C:\Users\labsfiap\Desktop\iNature\bin\Debug\net8.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
