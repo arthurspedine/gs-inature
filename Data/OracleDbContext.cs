@@ -8,6 +8,7 @@ namespace iNature.Data
         public OracleDbContext(DbContextOptions<OracleDbContext> options) : base(options) { }
         
         public DbSet<Usuario> Usuarios { get; set; }
+        public DbSet<Noticia> Noticias { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

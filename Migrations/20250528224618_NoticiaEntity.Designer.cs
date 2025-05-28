@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Oracle.EntityFrameworkCore.Metadata;
 using iNature.Data;
@@ -11,9 +12,11 @@ using iNature.Data;
 namespace iNature.Migrations
 {
     [DbContext(typeof(OracleDbContext))]
-    partial class OracleDbContextModelSnapshot : ModelSnapshot
+    [Migration("20250528224618_NoticiaEntity")]
+    partial class NoticiaEntity
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

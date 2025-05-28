@@ -22,6 +22,8 @@ namespace iNature.Models
         [Required]
         public UsuarioRole Role { get; set; }
 
+        public ICollection<Noticia> Noticias { get; set; } = [];
+
         public Usuario() { }
         
         public Usuario(string nome, string email, string senha, UsuarioRole role)

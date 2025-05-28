@@ -29,6 +29,12 @@ namespace iNature.Data.Mappings
                 .HasConversion<string>()
                 .IsRequired()
                 .HasMaxLength(maxEnumLength);
+
+            // relacionamento com Noticia
+            builder.HasMany(u => u.Noticias)
+                .WithOne(n => n.Usuario)
+                .HasForeignKey(n => n.UsuarioId)
+                .OnDelete(DeleteBehavior.Restrict);
         }
     }
 }
