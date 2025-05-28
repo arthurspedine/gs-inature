@@ -15,16 +15,16 @@ namespace iNature.Services
             _configuration = configuration;
         }
 
-        public string GenerateJwtToken(string email, string role)
+        public string GenerateJwtToken(long userId, string role)
         {
             var jwtKey = _configuration["Jwt:Key"];
             var jwtIssuer = _configuration["Jwt:Issuer"];
             var jwtAudience = _configuration["Jwt:Audience"];
             var expireMinutesString = _configuration["Jwt:ExpireMinutes"];
             if (string.IsNullOrEmpty(jwtKey))
-                throw new InvalidOperationException("Jwt:Key deve ser configurada.");
+            throw new InvalidOperationException("Jwt:Key deve ser configurada.");
             if (string.IsNullOrEmpty(expireMinutesString))
-                throw new InvalidOperationException("Jwt:ExpireMinutes deve ser configurda.");
+            throw new InvalidOperationException("Jwt:ExpireMinutes deve ser configurda.");
             var expireMinutes = int.Parse(expireMinutesString);
 
             var tokenHandler = new JwtSecurityTokenHandler();
@@ -32,15 +32,15 @@ namespace iNature.Services
 
             var tokenDescriptor = new SecurityTokenDescriptor
             {
-                Subject = new ClaimsIdentity(
-                [
-                    new Claim(ClaimTypes.Email, email),
-                    new Claim(ClaimTypes.Role, role)
-                ]),
-                Expires = DateTime.UtcNow.AddMinutes(expireMinutes),
-                Issuer = jwtIssuer,
-                Audience = jwtAudience,
-                SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(key), SecurityAlgorithms.HmacSha256Signature)
+            Subject = new ClaimsIdentity(
+            [
+                new Claim(ClaimTypes.NameIdentifier, userId.ToString()),
+                new Claim(ClaimTypes.Role, role)
+            ]),
+            Expires = DateTime.UtcNow.AddMinutes(expireMinutes),
+            Issuer = jwtIssuer,
+            Audience = jwtAudience,
+            SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(key), SecurityAlgorithms.HmacSha256Signature)
             };
 
             var token = tokenHandler.CreateToken(tokenDescriptor);

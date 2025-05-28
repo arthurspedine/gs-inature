@@ -28,7 +28,7 @@ namespace iNature.Services
                 throw new UnauthorizedAccessException("Senha incorreta.");
             }
 
-            string token = _tokenService.GenerateJwtToken(usuario.Email, usuario.Role.ToString());
+            string token = _tokenService.GenerateJwtToken(usuario.Id, usuario.Role.ToString());
 
             return new LoginResponseDTO(
                 token
