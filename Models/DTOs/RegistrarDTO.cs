@@ -4,7 +4,7 @@ namespace iNature.Models.DTOs
 {
     public record RegistrarDTO
     {
-        [Required]
+        [Required(ErrorMessage = "O nome é obrigatório.")]
         public required string Nome { get; set; }
         [Required]
         [EmailAddress(ErrorMessage = "O e-mail fornecido não é válido.")]

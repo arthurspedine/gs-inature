@@ -9,6 +9,8 @@ namespace iNature.Data
         
         public DbSet<Usuario> Usuarios { get; set; }
         public DbSet<Noticia> Noticias { get; set; }
+        public DbSet<Report> Reports { get; set; }
+        public DbSet<ReportConfirmacao> ReportConfirmacoes { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

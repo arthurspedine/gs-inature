@@ -26,10 +26,7 @@ namespace iNature.Models
 
         public Usuario Usuario { get; set; }
 
-        public Noticia()
-        {
-            DataPublicacao = DateTime.UtcNow;
-        }
+        public Noticia() { }
         
         public Noticia(int usuarioId, string titulo, string resumo, string corpo)
         {

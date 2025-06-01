@@ -7,7 +7,7 @@ using iNature.Services;
 using iNature.Repositories;
 using Microsoft.OpenApi.Models;
 using System.Security.Claims;
-using System.IdentityModel.Tokens.Jwt;
+using System.Text.Json.Serialization;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -17,6 +17,9 @@ builder.Services.AddDbContext<OracleDbContext>(options =>
 var jwtKey = builder.Configuration["Jwt:Key"];
 var jwtIssuer = builder.Configuration["Jwt:Issuer"];
 var jwtAudience = builder.Configuration["Jwt:Audience"];
+
+if (string.IsNullOrEmpty(jwtKey))
+    throw new InvalidOperationException("JWT Key não está configurada. Por favor, defina 'Jwt:Key' em sua configuração.");
 
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
     .AddJwtBearer(options =>
@@ -42,10 +45,16 @@ builder.Services.AddScoped<UsuarioRepository>();
 builder.Services.AddScoped<TokenService>();
 builder.Services.AddScoped<NoticiaService>();
 builder.Services.AddScoped<NoticiaRepository>();
+builder.Services.AddScoped<ReportService>();
+builder.Services.AddScoped<ReportRepository>();
 builder.Services.AddHttpContextAccessor();
 
 
-builder.Services.AddControllers();
+builder.Services.AddControllers()
+    .AddJsonOptions(options =>
+        {
+            options.JsonSerializerOptions.Converters.Add(new JsonStringEnumConverter());
+        });;
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen(c =>
 {

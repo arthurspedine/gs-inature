@@ -36,9 +36,7 @@ namespace iNature.Services
         }
 
         public async Task<NoticiaResponseDTO?> CreateNoticiaAsync(NoticiaRequestDTO dto, int usuarioId)
-        {
-            var usuario = await _usuarioRepository.GetByEmailAsync(""); // Você pode implementar GetById
-            
+        {  
             var noticia = new Noticia(usuarioId, dto.Titulo, dto.Resumo, dto.Corpo);
             var noticiaCreated = await _noticiaRepository.CreateAsync(noticia);
 

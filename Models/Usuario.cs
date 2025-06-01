@@ -24,6 +24,8 @@ namespace iNature.Models
 
         public ICollection<Noticia> Noticias { get; set; } = [];
 
+        public ICollection<Report> Reports { get; set; } = [];
+
         public Usuario() { }
         
         public Usuario(string nome, string email, string senha, UsuarioRole role)

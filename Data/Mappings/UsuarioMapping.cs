@@ -35,6 +35,11 @@ namespace iNature.Data.Mappings
                 .WithOne(n => n.Usuario)
                 .HasForeignKey(n => n.UsuarioId)
                 .OnDelete(DeleteBehavior.Restrict);
+
+            builder.HasMany(u => u.Reports)
+                .WithOne(r => r.Usuario)
+                .HasForeignKey(r => r.UsuarioId)
+                .OnDelete(DeleteBehavior.Restrict);
         }
     }
 }

@@ -5,7 +5,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace iNature.Controllers
 {
     [ApiController]
-    [Route("api/auth/[controller]")]
+    [Route("api/[controller]")]
     [Produces("application/json")]
     public class UsuarioController : ControllerBase
     {
