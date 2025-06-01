@@ -44,5 +44,10 @@ namespace iNature.Services
             var reports = await _repository.GetByUsuarioAsync(usuarioId);
             return reports.Select(ReportResponseDTO.FromReport);
         }
+
+        public async Task<Report?> BuscarPorId(int id)
+        {
+            return await _repository.GetByIdAsync(id);
+        }
     }
 }

@@ -47,6 +47,8 @@ builder.Services.AddScoped<NoticiaService>();
 builder.Services.AddScoped<NoticiaRepository>();
 builder.Services.AddScoped<ReportService>();
 builder.Services.AddScoped<ReportRepository>();
+builder.Services.AddScoped<ReportConfirmacaoService>();
+builder.Services.AddScoped<ReportConfirmacaoRepository>();
 builder.Services.AddHttpContextAccessor();
 
 
