@@ -32,7 +32,8 @@ namespace iNature.Services
 
         public async Task RemoverConfirmacaoAsync(int reportId, int usuarioId)
         {
-            var confirmacao = await _repository.ObterAsync(reportId, usuarioId) ?? throw new InvalidOperationException("Confirmação não encontrada.");
+            var confirmacao = await _repository.ObterAsync(reportId, usuarioId) 
+                ?? throw new InvalidOperationException("Você não confirmou esse report.");
             await _repository.RemoverAsync(confirmacao);
         }
     }

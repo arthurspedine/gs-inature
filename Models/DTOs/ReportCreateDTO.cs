@@ -31,6 +31,6 @@ namespace iNature.Models.DTOs
         public required string Bairro { get; set; }
         [Required(ErrorMessage = "O logradouro é obrigatório.")]
         public required string Logradouro { get; set; }
-        public required int Numero { get; set; }
+        public int Numero { get; set; }
     }
 }

@@ -38,7 +38,7 @@ namespace iNature.Controllers
         }
         
         // POST - registrar novo usuário
-        [HttpPost("registrar")]
+        [HttpPost]
         public async Task<IActionResult> Registrar(RegistrarDTO dto)
         {
             try
