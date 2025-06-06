@@ -20,6 +20,9 @@ Tudo isso em um só lugar, com foco em **prevenção, conscientização e engaja
 - **Autorização**: Role-based (JORNALISTA, COMUM)
 - **Banco de Dados**: Oracle Entity Framework Core
 
+## 🛢️ Diagrama de Classes
+![image](https://github.com/user-attachments/assets/2942e064-b632-4b10-a81d-4ed04f683a24)
+
 ## 🚀 Desenvolvimento
 
 ### Pré-requisitos
@@ -272,7 +275,7 @@ Authorization: Bearer {{token}}
 ### Casos de Teste Importantes
 
 #### Teste de Validação de Dados
-- Tente criar notícia com título > 200 caracteres
+- Tente registrar usuário com tipo inválido
 - Tente criar report com tipo inválido
 - Tente registrar usuário com email inválido
 
